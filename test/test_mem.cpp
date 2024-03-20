@@ -9,8 +9,6 @@
 #include "libipc/memory/resource.h"
 #include "libipc/pool_alloc.h"
 
-// #include "gperftools/tcmalloc.h"
-
 #include "test.h"
 #include "thread_pool.h"
 
