@@ -58,13 +58,6 @@ if (LIBIPC_BUILD_DEMOS)
     add_subdirectory(demo/chat)
     add_subdirectory(demo/msg_que)
     add_subdirectory(demo/send_recv)
-    if (MSVC)
-        add_subdirectory(demo/win_service/service)
-        add_subdirectory(demo/win_service/client)
-    else()
-        add_subdirectory(demo/linux_service/service)
-        add_subdirectory(demo/linux_service/client)
-    endif()
 endif()
 
 install(

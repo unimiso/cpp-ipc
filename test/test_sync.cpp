@@ -1,4 +1,4 @@
-
+﻿
 #include <thread>
 #include <iostream>
 #include <mutex>
@@ -116,29 +116,29 @@ TEST(Sync, Condition) {
         // https://zenn.dev/zach_leee/articles/559b4c62ba52a1
         // https://yohhoy.hatenadiary.jp/entry/20120326/p1
         // Spurious Wakeupが起きうる。。。
-        ipc::sync::condition cond {"test-cond"};
-        ipc::sync::mutex lock {"test-mutex"};
+        ipc::sync::condition cond_inner;
+        EXPECT_TRUE(cond_inner.open("test-cond"));
+        ipc::sync::mutex lock_inner;
+        EXPECT_TRUE(lock_inner.open("test-mutex"));
         for (int i = 0; i < 10; ++i) {
-            int val = 0;
             {
-                std::lock_guard<ipc::sync::mutex> guard {lock};
+                std::lock_guard<ipc::sync::mutex> guard {lock_inner};
                 while (que.empty()) {
-                    ASSERT_TRUE(cond.wait(lock));
+                    ASSERT_TRUE(cond_inner.wait(lock_inner));
                 }
-                val = que.front();
+                int val = que.front();
                 que.pop_front();
                 EXPECT_NE( val, 0 );
                 std::printf( "test-cond-%d: %d\n", num, val );
             }
         }
         for (;;) {
-            int val = 0;
             {
-                std::lock_guard<ipc::sync::mutex> guard {lock};
+                std::lock_guard<ipc::sync::mutex> guard {lock_inner};
                 while (que.empty()) {
-                    ASSERT_TRUE(cond.wait(lock, 1000));
+                    ASSERT_TRUE(cond_inner.wait(lock_inner, 1000));
                 }
-                val = que.front();
+                int val = que.front();
                 que.pop_front();
                 if ( val == 0 ) {
                     std::printf( "test-cond-%d: exit.\n", num );

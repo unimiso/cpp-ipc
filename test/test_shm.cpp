@@ -1,4 +1,4 @@
-#include <cstring>
+﻿#include <cstring>
 #include <cstdint>
 #include <thread>
 

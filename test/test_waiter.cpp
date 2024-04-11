@@ -1,4 +1,4 @@
-#include <thread>
+﻿#include <thread>
 #include <iostream>
 
 #include "libipc/waiter.h"

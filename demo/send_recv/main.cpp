@@ -63,8 +63,8 @@ int main(int argc, char ** argv) {
     std::string mode {argv[1]};
     if (mode == "send") {
         if (argc < 4) return -1;
-        do_send(std::stoi(argv[2]) /*size*/, 
-                std::stoi(argv[3]) /*interval*/);
+        do_send(std::stoi(argv[3]) /*size*/, 
+                std::stoi(argv[2]) /*interval*/);
     } else if (mode == "recv") {
         do_recv(std::stoi(argv[2]) /*interval*/);
     }

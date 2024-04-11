@@ -14,8 +14,6 @@
 namespace {
 
 constexpr char const name__  [] = "ipc-msg-que";
-constexpr char const mode_s__[] = "s";
-constexpr char const mode_r__[] = "r";
 
 constexpr std::size_t const min_sz = 128;
 constexpr std::size_t const max_sz = 1024 * 16;
@@ -128,9 +126,10 @@ int main(int argc, char ** argv) {
 #endif
 
     std::string mode {argv[1]};
-    if (mode == mode_s__) {
+    if (mode == "send") {
         do_send();
-    } else if (mode == mode_r__) {
+    }
+    else if (mode == "recv") {
         do_recv();
     }
     return 0;
