@@ -2,18 +2,18 @@ project(ipc)
 
 set (PACKAGE_VERSION 1.3.0)
 
-aux_source_directory(${LIBIPC_PROJECT_DIR}/src/libipc SRC_FILES)
-aux_source_directory(${LIBIPC_PROJECT_DIR}/src/libipc/sync SRC_FILES)
-aux_source_directory(${LIBIPC_PROJECT_DIR}/src/libipc/platform SRC_FILES)
+aux_source_directory(${LIBIPC_PROJECT_DIR}/src SRC_FILES)
+aux_source_directory(${LIBIPC_PROJECT_DIR}/src/sync SRC_FILES)
+aux_source_directory(${LIBIPC_PROJECT_DIR}/src/platform SRC_FILES)
 
 file(GLOB HEAD_FILES
   ${LIBIPC_PROJECT_DIR}/include/libipc/*.h
-  ${LIBIPC_PROJECT_DIR}/src/libipc/*.h
-  ${LIBIPC_PROJECT_DIR}/src/libipc/*.inc
-  ${LIBIPC_PROJECT_DIR}/src/libipc/circ/*.h
-  ${LIBIPC_PROJECT_DIR}/src/libipc/memory/*.h
-  ${LIBIPC_PROJECT_DIR}/src/libipc/platform/*.h
-  ${LIBIPC_PROJECT_DIR}/src/libipc/utility/*.h)
+  ${LIBIPC_PROJECT_DIR}/src/*.h
+  ${LIBIPC_PROJECT_DIR}/src/*.inc
+  ${LIBIPC_PROJECT_DIR}/src/circ/*.h
+  ${LIBIPC_PROJECT_DIR}/src/memory/*.h
+  ${LIBIPC_PROJECT_DIR}/src/platform/*.h
+  ${LIBIPC_PROJECT_DIR}/src/utility/*.h)
 
 if (LIBIPC_BUILD_SHARED_LIBS)
   add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEAD_FILES})
@@ -44,7 +44,7 @@ target_include_directories(${PROJECT_NAME}
     "$<BUILD_INTERFACE:${LIBIPC_PROJECT_DIR}/include>"
     "$<INSTALL_INTERFACE:include>"
   PRIVATE ${LIBIPC_PROJECT_DIR}/src
-          $<$<BOOL:UNIX>:${LIBIPC_PROJECT_DIR}/src/libipc/platform/linux>)
+          $<$<BOOL:UNIX>:${LIBIPC_PROJECT_DIR}/src/platform/linux>)
 
 if(NOT MSVC)
   target_link_libraries(${PROJECT_NAME} PUBLIC
