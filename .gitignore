@@ -49,3 +49,4 @@ build
 # vs
 .vs
 .vscode
+x64/
