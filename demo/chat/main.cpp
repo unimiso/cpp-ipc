@@ -14,8 +14,8 @@ constexpr char const quit__[] = "q";
 constexpr char const id__  [] = "c";
 
 inline std::size_t calc_unique_id() {
-    static ipc::shm::handle g_shm { "__CHAT_ACC_STORAGE__", sizeof(std::atomic<std::size_t>) };
-    return static_cast<std::atomic<std::size_t>*>(g_shm.get())->fetch_add(1, std::memory_order_relaxed);
+    static ipc::shm::shm_seg g_shm { "__CHAT_ACC_STORAGE__", sizeof(std::atomic<std::size_t>) };
+    return static_cast<std::atomic<std::size_t>*>(g_shm.get_ptr())->fetch_add(1, std::memory_order_relaxed);
 }
 
 ipc::channel sender__   { name__, ipc::sender   };

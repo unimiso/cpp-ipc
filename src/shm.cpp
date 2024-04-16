@@ -11,7 +11,7 @@
 namespace ipc {
 namespace shm {
 
-class handle::handle_ : public pimpl<handle_> {
+class shm_seg::handle_ : public pimpl<handle_> {
 public:
     shm::id_t id_ = nullptr;
     void*     m_  = nullptr;
@@ -20,55 +20,55 @@ public:
     std::size_t s_ = 0;
 };
 
-handle::handle()
+shm_seg::shm_seg()
     : p_(p_->make()) {
 }
 
-handle::handle(char const * name, std::size_t size, unsigned mode)
-    : handle() {
+shm_seg::shm_seg(char const * name, std::size_t size, unsigned mode)
+    : shm_seg() {
     acquire(name, size, mode);
 }
 
-handle::handle(handle&& rhs)
-    : handle() {
+shm_seg::shm_seg(shm_seg&& rhs)
+    : shm_seg() {
     swap(rhs);
 }
 
-handle::~handle() {
+shm_seg::~shm_seg() {
     release();
     p_->clear();
 }
 
-void handle::swap(handle& rhs) {
+void shm_seg::swap(shm_seg& rhs) {
     std::swap(p_, rhs.p_);
 }
 
-handle& handle::operator=(handle rhs) {
+shm_seg& shm_seg::operator=(shm_seg rhs) {
     swap(rhs);
     return *this;
 }
 
-bool handle::valid() const noexcept {
+bool shm_seg::valid() const noexcept {
     return impl(p_)->m_ != nullptr;
 }
 
-std::size_t handle::size() const noexcept {
+std::size_t shm_seg::size() const noexcept {
     return impl(p_)->s_;
 }
 
-char const * handle::name() const noexcept {
+char const * shm_seg::name() const noexcept {
     return impl(p_)->n_.c_str();
 }
 
-std::int32_t handle::ref() const noexcept {
+std::int32_t shm_seg::ref() const noexcept {
     return shm::get_ref(impl(p_)->id_);
 }
 
-void handle::sub_ref() noexcept {
+void shm_seg::sub_ref() noexcept {
     shm::sub_ref(impl(p_)->id_);
 }
 
-bool handle::acquire(char const * name, std::size_t size, unsigned mode) {
+bool shm_seg::acquire(char const * name, std::size_t size, unsigned mode) {
     if (!is_valid_string(name)) {
         ipc::error("fail acquire: name is empty\n");
         return false;
@@ -84,23 +84,23 @@ bool handle::acquire(char const * name, std::size_t size, unsigned mode) {
     return valid();
 }
 
-std::int32_t handle::release() {
+std::int32_t shm_seg::release() {
     if (impl(p_)->id_ == nullptr) return -1;
     return shm::release(detach());
 }
 
-void* handle::get() const {
+void* shm_seg::get_ptr() const {
     return impl(p_)->m_;
 }
 
-void handle::attach(id_t id) {
+void shm_seg::attach(id_t id) {
     if (id == nullptr) return;
     release();
     impl(p_)->id_ = id;
     impl(p_)->m_  = shm::get_mem(impl(p_)->id_, &(impl(p_)->s_));
 }
 
-id_t handle::detach() {
+id_t shm_seg::detach() {
     auto old = impl(p_)->id_;
     impl(p_)->id_ = nullptr;
     impl(p_)->m_  = nullptr;

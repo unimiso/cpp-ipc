@@ -24,16 +24,16 @@ IPC_EXPORT void         remove (char const * name);
 IPC_EXPORT std::int32_t get_ref(id_t id);
 IPC_EXPORT void sub_ref(id_t id);
 
-class IPC_EXPORT handle {
+class IPC_EXPORT shm_seg {
 public:
-    handle();
-    handle(char const * name, std::size_t size, unsigned mode = create | open);
-    handle(handle&& rhs);
+    shm_seg();
+    shm_seg(char const * name, std::size_t size, unsigned mode = create | open);
+    shm_seg(shm_seg&& rhs);
 
-    ~handle();
+    ~shm_seg();
 
-    void swap(handle& rhs);
-    handle& operator=(handle rhs);
+    void swap(shm_seg& rhs);
+    shm_seg& operator=(shm_seg rhs);
 
     bool         valid() const noexcept;
     std::size_t  size () const noexcept;
@@ -45,7 +45,7 @@ public:
     bool acquire(char const * name, std::size_t size, unsigned mode = create | open);
     std::int32_t release();
 
-    void* get() const;
+    void* get_ptr() const;
 
     void attach(id_t);
     id_t detach();

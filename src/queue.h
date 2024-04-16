@@ -26,7 +26,7 @@ namespace detail {
 class queue_conn {
 protected:
     circ::cc_t connected_ = 0;
-    shm::handle elems_h_;
+    shm::shm_seg elems_h_;
 
     template <typename Elems>
     Elems* open(char const * name) {
@@ -37,7 +37,7 @@ protected:
         if (!elems_h_.acquire(name, sizeof(Elems))) {
             return nullptr;
         }
-        auto elems = static_cast<Elems*>(elems_h_.get());
+        auto elems = static_cast<Elems*>(elems_h_.get_ptr());
         if (elems == nullptr) {
             ipc::error("fail acquire elems: %s\n", name);
             return nullptr;

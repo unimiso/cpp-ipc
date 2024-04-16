@@ -20,10 +20,10 @@ namespace sync {
 class condition {
     ipc::sync::semaphore sem_;
     ipc::sync::mutex lock_;
-    ipc::shm::handle shm_;
+    ipc::shm::shm_seg shm_;
 
     std::int32_t &counter() {
-        return *static_cast<std::int32_t *>(shm_.get());
+        return *static_cast<std::int32_t *>(shm_.get_ptr());
     }
 
 public:

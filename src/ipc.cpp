@@ -71,20 +71,20 @@ ipc::buff_t make_cache(T& data, std::size_t size) {
 }
 
 acc_t *cc_acc(ipc::string const &pref) {
-    static ipc::unordered_map<ipc::string, ipc::shm::handle> handles;
+    static ipc::unordered_map<ipc::string, ipc::shm::shm_seg> handles;
     static std::mutex lock;
     std::lock_guard<std::mutex> guard {lock};
     auto it = handles.find(pref);
     if (it == handles.end()) {
         ipc::string shm_name {ipc::make_prefix(pref, {"CA_CONN__"})};
-        ipc::shm::handle h;
+        ipc::shm::shm_seg h;
         if (!h.acquire(shm_name.c_str(), sizeof(acc_t))) {
             ipc::error("[cc_acc] acquire failed: %s\n", shm_name.c_str());
             return nullptr;
         }
         it = handles.emplace(pref, std::move(h)).first;
     }
-    return static_cast<acc_t *>(it->second.get());
+    return static_cast<acc_t *>(it->second.get_ptr());
 }
 
 struct cache_t {
@@ -109,7 +109,7 @@ struct conn_info_head {
     ipc::string name_;
     msg_id_t    cc_id_; // connection-info id
     ipc::detail::waiter cc_waiter_, wt_waiter_, rd_waiter_;
-    ipc::shm::handle acc_h_;
+    ipc::shm::shm_seg acc_h_;
 
     conn_info_head(char const * prefix, char const * name)
         : prefix_{ipc::make_string(prefix)}
@@ -143,7 +143,7 @@ struct conn_info_head {
     }
 
     auto acc() {
-        return static_cast<acc_t*>(acc_h_.get());
+        return static_cast<acc_t*>(acc_h_.get_ptr());
     }
 
     auto& recv_cache() {
@@ -192,10 +192,10 @@ struct chunk_info_t {
 
 auto& chunk_storages() {
     class chunk_handle_t {
-        ipc::unordered_map<ipc::string, ipc::shm::handle> handles_;
+        ipc::unordered_map<ipc::string, ipc::shm::shm_seg> handles_;
         std::mutex lock_;
 
-        static bool make_handle(ipc::shm::handle &h, ipc::string const &shm_name, std::size_t chunk_size) {
+        static bool make_handle(ipc::shm::shm_seg&h, ipc::string const &shm_name, std::size_t chunk_size) {
             if (!h.valid() &&
                 !h.acquire( shm_name.c_str(), 
                             sizeof(chunk_info_t) + chunk_info_t::chunks_mem_size(chunk_size) )) {
@@ -209,7 +209,7 @@ auto& chunk_storages() {
         chunk_info_t *get_info(conn_info_head *inf, std::size_t chunk_size) {
             ipc::string pref {(inf == nullptr) ? ipc::string{} : inf->prefix_};
             ipc::string shm_name {ipc::make_prefix(pref, {"CHUNK_INFO__", ipc::to_string(chunk_size)})};
-            ipc::shm::handle *h;
+            ipc::shm::shm_seg* h;
             {
                 std::lock_guard<std::mutex> guard {lock_};
                 h = &(handles_[pref]);
@@ -217,7 +217,7 @@ auto& chunk_storages() {
                     return nullptr;
                 }
             }
-            auto *info = static_cast<chunk_info_t*>(h->get());
+            auto *info = static_cast<chunk_info_t*>(h->get_ptr());
             if (info == nullptr) {
                 ipc::error("[chunk_storages] chunk_shm.id_info_.get failed: chunk_size = %zd\n", chunk_size);
                 return nullptr;
@@ -524,7 +524,7 @@ static bool send(F&& gen_push, ipc::handle_t h, void const * data, std::size_t s
                             static_cast<std::int32_t>(ipc::data_length), &(dat.first), 0);
         }
         // try using message fragment
-        //ipc::log("fail: shm::handle for big message. msg_id: %zd, size: %zd\n", msg_id, size);
+        //ipc::log("fail: shm::shm_seg for big message. msg_id: %zd, size: %zd\n", msg_id, size);
     }
     // push message fragment
     std::int32_t offset = 0;
@@ -648,7 +648,7 @@ static ipc::buff_t recv(ipc::handle_t h, std::uint64_t tm) {
                     }, r_info};
                 }
             } else {
-                ipc::log("fail: shm::handle for large message. msg_id: %zd, buf_id: %zd, size: %zd\n", msg.id_, buf_id, msg_size);
+                ipc::log("fail: shm::shm_seg for large message. msg_id: %zd, buf_id: %zd, size: %zd\n", msg.id_, buf_id, msg_size);
                 continue;
             }
         }
