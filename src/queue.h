@@ -15,10 +15,10 @@
 #include "libipc/shm.h"
 #include "libipc/rw_lock.h"
 
-#include "libipc/utility/log.h"
-#include "libipc/platform/detail.h"
-#include "libipc/circ/elem_def.h"
-#include "libipc/memory/resource.h"
+#include "utility/log.h"
+#include "platform/detail.h"
+#include "circ/elem_def.h"
+#include "memory/resource.h"
 
 namespace ipc {
 namespace detail {

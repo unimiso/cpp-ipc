@@ -1,14 +1,14 @@
 
 #include "libipc/semaphore.h"
 
-#include "libipc/utility/pimpl.h"
-#include "libipc/utility/log.h"
-#include "libipc/memory/resource.h"
-#include "libipc/platform/detail.h"
+#include "utility/pimpl.h"
+#include "utility/log.h"
+#include "memory/resource.h"
+#include "platform/detail.h"
 #if defined(IPC_OS_WINDOWS_)
-#include "libipc/platform/win/semaphore.h"
+#include "platform/win/semaphore.h"
 #elif defined(IPC_OS_LINUX_) || defined(IPC_OS_QNX_)
-#include "libipc/platform/posix/semaphore_impl.h"
+#include "platform/posix/semaphore_impl.h"
 #else/*IPC_OS*/
 #   error "Unsupported platform."
 #endif

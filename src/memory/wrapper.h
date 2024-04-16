@@ -13,9 +13,9 @@
 #include "libipc/rw_lock.h"
 #include "libipc/pool_alloc.h"
 
-#include "libipc/utility/concept.h"
-#include "libipc/memory/alloc.h"
-#include "libipc/platform/detail.h"
+#include "utility/concept.h"
+#include "memory/alloc.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace mem {

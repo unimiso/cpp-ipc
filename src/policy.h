@@ -3,9 +3,9 @@
 #include <type_traits>
 
 #include "libipc/def.h"
-#include "libipc/prod_cons.h"
+#include "prod_cons.h"
 
-#include "libipc/circ/elem_array.h"
+#include "circ/elem_array.h"
 
 namespace ipc {
 namespace policy {

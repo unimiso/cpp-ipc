@@ -4,7 +4,7 @@
 
 #include <Windows.h>
 
-#include "libipc/utility/log.h"
+#include "utility/log.h"
 
 #include "to_tchar.h"
 #include "get_sa.h"

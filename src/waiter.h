@@ -8,7 +8,7 @@
 #include "libipc/def.h"
 #include "libipc/mutex.h"
 #include "libipc/condition.h"
-#include "libipc/platform/detail.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace detail {

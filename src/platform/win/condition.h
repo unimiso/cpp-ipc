@@ -1,17 +1,18 @@
 #pragma once
 
+#include "libipc/mutex.h"
+#include "libipc/semaphore.h"
+#include "libipc/shm.h"
+
 #include <cstdint>
 #include <string>
 #include <mutex>
 
 #include <Windows.h>
 
-#include "libipc/utility/log.h"
-#include "libipc/utility/scope_guard.h"
-#include "libipc/platform/detail.h"
-#include "libipc/mutex.h"
-#include "libipc/semaphore.h"
-#include "libipc/shm.h"
+#include "utility/log.h"
+#include "utility/scope_guard.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace detail {

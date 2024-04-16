@@ -1,122 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\buffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\ipc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\pool_alloc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\shm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\condition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\mutex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\semaphore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\waiter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\platform.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\platform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="ipc.cpp" />
+    <ClCompile Include="pool_alloc.cpp" />
+    <ClCompile Include="shm.cpp" />
+    <ClCompile Include="sync\condition.cpp" />
+    <ClCompile Include="sync\mutex.cpp" />
+    <ClCompile Include="sync\semaphore.cpp" />
+    <ClCompile Include="sync\waiter.cpp" />
+    <ClCompile Include="platform\platform.c" />
+    <ClCompile Include="platform\platform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\buffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\condition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\def.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\export.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\ipc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\mutex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\pool_alloc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\rw_lock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\semaphore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\shm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\circ\elem_array.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\circ\elem_def.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\alloc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\allocator_wrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\wrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\detail.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\policy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\prod_cons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\concept.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\id_pool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\pimpl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\scope_guard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\utility.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\waiter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\CMakeLists.txt" />
+    <ClInclude Include="..\include\libipc\buffer.h" />
+    <ClInclude Include="..\include\libipc\condition.h" />
+    <ClInclude Include="..\include\libipc\def.h" />
+    <ClInclude Include="..\include\libipc\export.h" />
+    <ClInclude Include="..\include\libipc\ipc.h" />
+    <ClInclude Include="..\include\libipc\mutex.h" />
+    <ClInclude Include="..\include\libipc\pool_alloc.h" />
+    <ClInclude Include="..\include\libipc\rw_lock.h" />
+    <ClInclude Include="..\include\libipc\semaphore.h" />
+    <ClInclude Include="..\include\libipc\shm.h" />
+    <ClInclude Include="circ\elem_array.h" />
+    <ClInclude Include="circ\elem_def.h" />
+    <ClInclude Include="memory\alloc.h" />
+    <ClInclude Include="memory\allocator_wrapper.h" />
+    <ClInclude Include="memory\resource.h" />
+    <ClInclude Include="memory\wrapper.h" />
+    <ClInclude Include="platform\detail.h" />
+    <ClInclude Include="policy.h" />
+    <ClInclude Include="prod_cons.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="utility\concept.h" />
+    <ClInclude Include="utility\id_pool.h" />
+    <ClInclude Include="utility\log.h" />
+    <ClInclude Include="utility\pimpl.h" />
+    <ClInclude Include="utility\scope_guard.h" />
+    <ClInclude Include="utility\utility.h" />
+    <ClInclude Include="waiter.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

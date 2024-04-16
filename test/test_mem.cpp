@@ -6,7 +6,7 @@
 
 #include "capo/random.hpp"
 
-#include "libipc/memory/resource.h"
+#include "memory/resource.h"
 #include "libipc/pool_alloc.h"
 
 #include "test.h"

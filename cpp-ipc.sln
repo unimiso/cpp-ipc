@@ -9,22 +9,22 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chat", "demo\chat\chat.vcxp
 		{7DB65A76-A8CC-3627-9022-B2FE36A234B3} = {7DB65A76-A8CC-3627-9022-B2FE36A234B3}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmock", "_deps\googletest-build\googlemock\gmock.vcxproj", "{FE19A40F-C60B-390F-8F25-8B93D20140E1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmock", "3rdparty/googletest\googlemock\gmock.vcxproj", "{FE19A40F-C60B-390F-8F25-8B93D20140E1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F555839E-9FBA-32EE-80AF-5212699EB2D1} = {F555839E-9FBA-32EE-80AF-5212699EB2D1}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmock_main", "_deps\googletest-build\googlemock\gmock_main.vcxproj", "{8027B539-0F4D-3710-A9AE-200C153BFD8C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gmock_main", "3rdparty/googletest\googlemock\gmock_main.vcxproj", "{8027B539-0F4D-3710-A9AE-200C153BFD8C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F555839E-9FBA-32EE-80AF-5212699EB2D1} = {F555839E-9FBA-32EE-80AF-5212699EB2D1}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "_deps\googletest-build\googletest\gtest.vcxproj", "{575E6F15-1C6E-306E-BBE7-4273556D8652}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "3rdparty/googletest\googletest\gtest.vcxproj", "{575E6F15-1C6E-306E-BBE7-4273556D8652}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F555839E-9FBA-32EE-80AF-5212699EB2D1} = {F555839E-9FBA-32EE-80AF-5212699EB2D1}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest_main", "_deps\googletest-build\googletest\gtest_main.vcxproj", "{EAE9F76E-FEF3-3CA1-8A02-DB2A04096178}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest_main", "3rdparty/googletest\googletest\gtest_main.vcxproj", "{EAE9F76E-FEF3-3CA1-8A02-DB2A04096178}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F555839E-9FBA-32EE-80AF-5212699EB2D1} = {F555839E-9FBA-32EE-80AF-5212699EB2D1}
 		{575E6F15-1C6E-306E-BBE7-4273556D8652} = {575E6F15-1C6E-306E-BBE7-4273556D8652}

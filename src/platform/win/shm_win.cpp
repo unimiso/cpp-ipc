@@ -8,8 +8,8 @@
 #include "libipc/def.h"
 #include "libipc/pool_alloc.h"
 
-#include "libipc/utility/log.h"
-#include "libipc/memory/resource.h"
+#include "utility/log.h"
+#include "memory/resource.h"
 
 #include "to_tchar.h"
 #include "get_sa.h"

@@ -8,10 +8,10 @@
 
 #include "libipc/def.h"
 
-#include "libipc/platform/detail.h"
-#include "libipc/circ/elem_def.h"
-#include "libipc/utility/log.h"
-#include "libipc/utility/utility.h"
+#include "platform/detail.h"
+#include "circ/elem_def.h"
+#include "utility/log.h"
+#include "utility/utility.h"
 
 namespace ipc {
 

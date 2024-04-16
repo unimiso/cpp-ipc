@@ -41,12 +41,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <IntDir>$(Platform)/$(Configuration)</IntDir>
+    <IntDir>$(Platform)/$(Configuration)/</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test-ipc</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir>$(SolutionDir)/$(Platform)/$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)/$(Platform)/$(Configuration)/</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test-ipc</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
@@ -54,8 +54,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/_deps/googletest-src/googletest/include" /external:I "C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/_deps/googletest-src/googletest"</AdditionalOptions>
+      <AdditionalIncludeDirectories>../include;../src;../3rdparty/googletest/googletest/include;../3rdparty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "../_deps/googletest-src/googletest/include" /external:I "../_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -75,37 +75,23 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../build\_deps\googletest-src\googletest\include;../build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../_deps\googletest-src\googletest\include;../_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../build\_deps\googletest-src\googletest\include;../build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../_deps\googletest-src\googletest\include;../_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-      <Command>setlocal
-C:\Programs\Develop\CMake\bin\cmake.exe -D TEST_TARGET=test-ipc -D TEST_EXECUTABLE=C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/bin/Debug/test-ipc.exe -D TEST_EXECUTOR= -D TEST_WORKING_DIR=C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/test -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=test-ipc_TESTS -D CTEST_FILE=C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/test/test-ipc[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P C:/Programs/Develop/CMake/share/cmake-3.28/Modules/GoogleTestAddTests.cmake
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-    </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest.lib;..\lib\Debug\gtest_main.lib;..\lib\Debug\ipc.lib;..\lib\Debug\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)/gtest.lib;$(OutDir)/gtest_main.lib;$(OutDir)/ipc.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/bin/Debug/test-ipc.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/bin/Debug/test-ipc.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>$(OutDir)/test-ipc.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -114,8 +100,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/_deps/googletest-src/googletest/include" /external:I "C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/_deps/googletest-src/googletest"</AdditionalOptions>
+      <AdditionalIncludeDirectories>../include;../src;../3rdparty/googletest/googletest/include;../3rdparty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "../_deps/googletest-src/googletest/include" /external:I "../_deps/googletest-src/googletest"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
@@ -135,10 +121,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../build\_deps\googletest-src\googletest\include;../build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../_deps\googletest-src\googletest\include;../_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../build\_deps\googletest-src\googletest\include;../build\_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;./;../3rdparty;../3rdparty\gtest\include;../_deps\googletest-src\googletest\include;../_deps\googletest-src\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -146,13 +132,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest.lib;..\lib\Release\gtest_main.lib;..\lib\Release\ipc.lib;..\lib\Release\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)/gtest.lib;$(OutDir)/gtest_main.lib;$(OutDir)/ipc.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/bin/Release/test-ipc.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/bin/Release/test-ipc.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>$(SolutionDir)/$(Platform)/$(Configuration)/test-ipc.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>

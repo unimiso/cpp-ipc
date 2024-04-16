@@ -10,9 +10,9 @@
 #include "libipc/def.h"
 #include "libipc/rw_lock.h"
 
-#include "libipc/utility/concept.h"
-#include "libipc/memory/allocator_wrapper.h"
-#include "libipc/platform/detail.h"
+#include "utility/concept.h"
+#include "memory/allocator_wrapper.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace mem {

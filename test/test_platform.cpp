@@ -8,7 +8,7 @@
 
 #include "test.h"
 
-#include "libipc/platform/win/to_tchar.h"
+#include "platform/win/to_tchar.h"
 
 TEST(Platform, to_tchar) {
     char const *utf8 = "hello world, "

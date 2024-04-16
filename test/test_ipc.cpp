@@ -7,7 +7,7 @@
 
 #include "libipc/ipc.h"
 #include "libipc/buffer.h"
-#include "libipc/memory/resource.h"
+#include "memory/resource.h"
 
 #include "test.h"
 #include "thread_pool.h"

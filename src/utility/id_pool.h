@@ -5,7 +5,7 @@
 #include <cstdint>
 
 #include "libipc/def.h"
-#include "libipc/platform/detail.h"
+#include "platform/detail.h"
 
 namespace ipc {
 

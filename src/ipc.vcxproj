@@ -38,18 +38,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\lib\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ipc.dir\Debug\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)/$(Configuration)/</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ipc</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\lib\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ipc.dir\Release\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)/$(Configuration)/</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ipc</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;./;.\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -68,10 +68,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;./;.\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;./;.\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -84,7 +84,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;./;.\platform\linux;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -106,86 +106,47 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\CMakeLists.txt">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\Programs\Develop\CMake\bin\cmake.exe -SC:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc -BC:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build --check-stamp-file C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Programs\Develop\CMake\share\cmake-3.28\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Programs\Develop\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Programs\Develop\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\src\cpp-ipc-config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\Programs\Develop\CMake\bin\cmake.exe -SC:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc -BC:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build --check-stamp-file C:/Project.uni/NumericalSimulation/UniParticleSim/external/cpp-ipc/build/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Programs\Develop\CMake\share\cmake-3.28\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Programs\Develop\CMake\share\cmake-3.28\Modules\CMakePackageConfigHelpers.cmake;C:\Programs\Develop\CMake\share\cmake-3.28\Modules\WriteBasicConfigVersionFile.cmake;C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\src\cpp-ipc-config.cmake.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\buffer.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\ipc.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\pool_alloc.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\shm.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\condition.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\mutex.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\semaphore.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\sync\waiter.cpp" />
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\platform.c">
-      <ObjectFileName>$(IntDir)/libipc/platform/platform.c.obj</ObjectFileName>
+    <ClCompile Include="buffer.cpp" />
+    <ClCompile Include="ipc.cpp" />
+    <ClCompile Include="pool_alloc.cpp" />
+    <ClCompile Include="shm.cpp" />
+    <ClCompile Include="sync\condition.cpp" />
+    <ClCompile Include="sync\mutex.cpp" />
+    <ClCompile Include="sync\semaphore.cpp" />
+    <ClCompile Include="sync\waiter.cpp" />
+    <ClCompile Include="platform\platform.c">
+      <ObjectFileName>$(IntDir)/platform/platform.c.obj</ObjectFileName>
     </ClCompile>
-    <ClCompile Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\platform.cpp">
-      <ObjectFileName>$(IntDir)/libipc/platform/platform.cpp.obj</ObjectFileName>
+    <ClCompile Include="platform\platform.cpp">
+      <ObjectFileName>$(IntDir)/platform/platform.cpp.obj</ObjectFileName>
     </ClCompile>
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\buffer.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\condition.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\def.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\export.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\ipc.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\mutex.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\pool_alloc.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\rw_lock.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\semaphore.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\include\libipc\shm.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\circ\elem_array.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\circ\elem_def.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\alloc.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\allocator_wrapper.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\resource.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\memory\wrapper.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\platform\detail.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\policy.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\prod_cons.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\queue.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\concept.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\id_pool.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\log.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\pimpl.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\scope_guard.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\utility\utility.h" />
-    <ClInclude Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\src\libipc\waiter.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="C:\Project.uni\NumericalSimulation\UniParticleSim\external\cpp-ipc\build\ZERO_CHECK.vcxproj">
-      <Project>{F555839E-9FBA-32EE-80AF-5212699EB2D1}</Project>
-      <Name>ZERO_CHECK</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
+    <ClInclude Include="..\include\libipc\buffer.h" />
+    <ClInclude Include="..\include\libipc\condition.h" />
+    <ClInclude Include="..\include\libipc\def.h" />
+    <ClInclude Include="..\include\libipc\export.h" />
+    <ClInclude Include="..\include\libipc\ipc.h" />
+    <ClInclude Include="..\include\libipc\mutex.h" />
+    <ClInclude Include="..\include\libipc\pool_alloc.h" />
+    <ClInclude Include="..\include\libipc\rw_lock.h" />
+    <ClInclude Include="..\include\libipc\semaphore.h" />
+    <ClInclude Include="..\include\libipc\shm.h" />
+    <ClInclude Include="circ\elem_array.h" />
+    <ClInclude Include="circ\elem_def.h" />
+    <ClInclude Include="memory\alloc.h" />
+    <ClInclude Include="memory\allocator_wrapper.h" />
+    <ClInclude Include="memory\resource.h" />
+    <ClInclude Include="memory\wrapper.h" />
+    <ClInclude Include="platform\detail.h" />
+    <ClInclude Include="policy.h" />
+    <ClInclude Include="prod_cons.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="utility\concept.h" />
+    <ClInclude Include="utility\id_pool.h" />
+    <ClInclude Include="utility\log.h" />
+    <ClInclude Include="utility\pimpl.h" />
+    <ClInclude Include="utility\scope_guard.h" />
+    <ClInclude Include="utility\utility.h" />
+    <ClInclude Include="waiter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

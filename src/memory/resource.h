@@ -11,9 +11,9 @@
 
 #include "libipc/def.h"
 
-#include "libipc/memory/alloc.h"
-#include "libipc/memory/wrapper.h"
-#include "libipc/platform/detail.h"
+#include "memory/alloc.h"
+#include "memory/wrapper.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace mem {

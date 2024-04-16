@@ -9,7 +9,7 @@
 
 #include "test.h"
 
-#include "libipc/platform/detail.h"
+#include "platform/detail.h"
 #if defined(IPC_OS_LINUX_)
 #include <pthread.h>
 #include <time.h>

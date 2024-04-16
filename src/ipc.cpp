@@ -15,19 +15,19 @@
 #include "libipc/def.h"
 #include "libipc/shm.h"
 #include "libipc/pool_alloc.h"
-#include "libipc/queue.h"
-#include "libipc/policy.h"
+#include "queue.h"
+#include "policy.h"
 #include "libipc/rw_lock.h"
-#include "libipc/waiter.h"
+#include "waiter.h"
 
-#include "libipc/utility/log.h"
-#include "libipc/utility/id_pool.h"
-#include "libipc/utility/scope_guard.h"
-#include "libipc/utility/utility.h"
+#include "utility/log.h"
+#include "utility/id_pool.h"
+#include "utility/scope_guard.h"
+#include "utility/utility.h"
 
-#include "libipc/memory/resource.h"
-#include "libipc/platform/detail.h"
-#include "libipc/circ/elem_array.h"
+#include "memory/resource.h"
+#include "platform/detail.h"
+#include "circ/elem_array.h"
 
 namespace {
 

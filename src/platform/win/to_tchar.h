@@ -10,9 +10,9 @@
 #include <stdexcept>
 #include <cstddef>
 
-#include "libipc/utility/concept.h"
-#include "libipc/memory/resource.h"
-#include "libipc/platform/detail.h"
+#include "utility/concept.h"
+#include "memory/resource.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace detail {

@@ -8,7 +8,7 @@
 #include "libipc/def.h"
 #include "libipc/rw_lock.h"
 
-#include "libipc/platform/detail.h"
+#include "platform/detail.h"
 
 namespace ipc {
 namespace circ {

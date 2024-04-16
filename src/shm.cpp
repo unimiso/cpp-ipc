@@ -4,9 +4,9 @@
 
 #include "libipc/shm.h"
 
-#include "libipc/utility/pimpl.h"
-#include "libipc/utility/log.h"
-#include "libipc/memory/resource.h"
+#include "utility/pimpl.h"
+#include "utility/log.h"
+#include "memory/resource.h"
 
 namespace ipc {
 namespace shm {

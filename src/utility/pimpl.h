@@ -3,8 +3,8 @@
 #include <new>
 #include <utility>
 
-#include "libipc/platform/detail.h"
-#include "libipc/utility/concept.h"
+#include "platform/detail.h"
+#include "utility/concept.h"
 #include "libipc/pool_alloc.h"
 
 namespace ipc {

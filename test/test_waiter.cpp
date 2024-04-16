@@ -1,7 +1,7 @@
 ﻿#include <thread>
 #include <iostream>
 
-#include "libipc/waiter.h"
+#include "waiter.h"
 #include "test.h"
 
 namespace {

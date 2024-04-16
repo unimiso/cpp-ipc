@@ -1,16 +1,16 @@
 
 #include "libipc/mutex.h"
 
-#include "libipc/utility/pimpl.h"
-#include "libipc/utility/log.h"
-#include "libipc/memory/resource.h"
-#include "libipc/platform/detail.h"
+#include "utility/pimpl.h"
+#include "utility/log.h"
+#include "memory/resource.h"
+#include "platform/detail.h"
 #if defined(IPC_OS_WINDOWS_)
-#include "libipc/platform/win/mutex.h"
+#include "platform/win/mutex.h"
 #elif defined(IPC_OS_LINUX_)
-#include "libipc/platform/linux/mutex.h"
+#include "platform/linux/mutex.h"
 #elif defined(IPC_OS_QNX_)
-#include "libipc/platform/posix/mutex.h"
+#include "platform/posix/mutex.h"
 #else/*IPC_OS*/
 #   error "Unsupported platform."
 #endif

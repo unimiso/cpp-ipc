@@ -5,7 +5,7 @@
 #include <new>          // std::hardware_destructive_interference_size
 #include <type_traits>  // std::is_trivially_copyable
 
-#include "libipc/platform/detail.h"
+#include "platform/detail.h"
 
 namespace ipc {
 
