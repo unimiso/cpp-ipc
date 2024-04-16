@@ -67,11 +67,6 @@ googlemock/gtest
 /googlemock/RUN_TESTS.vcxproj
 /googlemock/INSTALL.vcxproj.filters
 /googlemock/INSTALL.vcxproj
-/googlemock/gmock_main.vcxproj.filters
-/googlemock/gmock_main.vcxproj
-/googlemock/gmock.vcxproj.filters
-/googlemock/gmock.vcxproj
-/googlemock/gmock.sln
 /googlemock/ALL_BUILD.vcxproj.filters
 /googlemock/ALL_BUILD.vcxproj
 /lib

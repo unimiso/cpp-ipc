@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="../googletest\src\gtest-all.cc" />
+    <ClCompile Include="src/gmock-all.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{11AEAA4A-B2E4-3111-BC72-2022B4B45DEB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
