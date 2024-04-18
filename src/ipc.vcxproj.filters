@@ -1,51 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="buffer.cpp" />
-    <ClCompile Include="ipc.cpp" />
-    <ClCompile Include="pool_alloc.cpp" />
-    <ClCompile Include="shm.cpp" />
-    <ClCompile Include="sync\condition.cpp" />
-    <ClCompile Include="sync\mutex.cpp" />
-    <ClCompile Include="sync\semaphore.cpp" />
-    <ClCompile Include="sync\waiter.cpp" />
-    <ClCompile Include="platform\platform.c" />
-    <ClCompile Include="platform\platform.cpp" />
+    <ClCompile Include="platform\platform.c">
+      <Filter>impl</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\platform.cpp">
+      <Filter>impl</Filter>
+    </ClCompile>
+    <ClCompile Include="sync\waiter.cpp">
+      <Filter>impl</Filter>
+    </ClCompile>
+    <ClCompile Include="buffer.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="sync\condition.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="ipc.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="sync\mutex.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="pool_alloc.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="sync\semaphore.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
+    <ClCompile Include="shm.cpp">
+      <Filter>pub</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\libipc\buffer.h" />
-    <ClInclude Include="..\include\libipc\condition.h" />
-    <ClInclude Include="..\include\libipc\def.h" />
-    <ClInclude Include="..\include\libipc\export.h" />
-    <ClInclude Include="..\include\libipc\ipc.h" />
-    <ClInclude Include="..\include\libipc\mutex.h" />
-    <ClInclude Include="..\include\libipc\pool_alloc.h" />
-    <ClInclude Include="..\include\libipc\rw_lock.h" />
-    <ClInclude Include="..\include\libipc\semaphore.h" />
-    <ClInclude Include="..\include\libipc\shm.h" />
-    <ClInclude Include="circ\elem_array.h" />
-    <ClInclude Include="circ\elem_def.h" />
-    <ClInclude Include="memory\alloc.h" />
-    <ClInclude Include="memory\allocator_wrapper.h" />
-    <ClInclude Include="memory\resource.h" />
-    <ClInclude Include="memory\wrapper.h" />
-    <ClInclude Include="platform\detail.h" />
-    <ClInclude Include="policy.h" />
-    <ClInclude Include="prod_cons.h" />
-    <ClInclude Include="queue.h" />
-    <ClInclude Include="utility\concept.h" />
-    <ClInclude Include="utility\id_pool.h" />
-    <ClInclude Include="utility\log.h" />
-    <ClInclude Include="utility\pimpl.h" />
-    <ClInclude Include="utility\scope_guard.h" />
-    <ClInclude Include="utility\utility.h" />
-    <ClInclude Include="waiter.h" />
+    <ClInclude Include="..\include\libipc\buffer.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\condition.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\def.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\export.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\ipc.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\mutex.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\pool_alloc.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\rw_lock.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\semaphore.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libipc\shm.h">
+      <Filter>pub</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\alloc.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\allocator_wrapper.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\concept.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\detail.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="circ\elem_array.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="circ\elem_def.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\id_pool.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\log.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\pimpl.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="policy.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="prod_cons.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\resource.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\scope_guard.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\utility.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="waiter.h">
+      <Filter>impl</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\wrapper.h">
+      <Filter>impl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header Files">
+    <Filter Include="pub">
       <UniqueIdentifier>{6374D5FE-B6E9-3964-91E3-37DBE31E10A9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
+    <Filter Include="impl">
       <UniqueIdentifier>{F3E7A533-D01E-3ACA-8CD3-AAB5F9BD1F13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
