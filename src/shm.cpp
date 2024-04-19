@@ -11,9 +11,17 @@
 namespace ipc {
 namespace shm {
 
+IPC_EXPORT shm_seg::id_t         acquire(char const * name, std::size_t size, unsigned mode = shm_seg::create | shm_seg::open);
+IPC_EXPORT void *       get_mem( shm_seg::id_t id, std::size_t * size);
+IPC_EXPORT std::int32_t release( shm_seg::id_t id);
+IPC_EXPORT void         remove ( shm_seg::id_t id);
+IPC_EXPORT void         remove (char const * name);
+IPC_EXPORT std::int32_t get_ref( shm_seg::id_t id);
+IPC_EXPORT void sub_ref( shm_seg::id_t id);
+
 class shm_seg::handle_ : public pimpl<handle_> {
 public:
-    shm::id_t id_ = nullptr;
+    id_t id_ = nullptr;
     void*     m_  = nullptr;
 
     ipc::string n_;
@@ -100,7 +108,7 @@ void shm_seg::attach(id_t id) {
     impl(p_)->m_  = shm::get_mem(impl(p_)->id_, &(impl(p_)->s_));
 }
 
-id_t shm_seg::detach() {
+shm_seg::id_t shm_seg::detach() {
     auto old = impl(p_)->id_;
     impl(p_)->id_ = nullptr;
     impl(p_)->m_  = nullptr;

@@ -42,29 +42,8 @@ a0_err_t a0_futex(a0_ftx_t* uaddr,
 }
 
 A0_STATIC_INLINE
-a0_err_t a0_ftx_wait(a0_ftx_t* ftx, int confirm_val, const a0_time_mono_t* time_mono) {
-  if (!time_mono) {
-    return a0_futex(ftx, FUTEX_WAIT, confirm_val, 0, NULL, 0);
-  }
-
-  timespec_t ts_mono;
-  A0_RETURN_ERR_ON_ERR(a0_clock_convert(CLOCK_BOOTTIME, time_mono->ts, CLOCK_MONOTONIC, &ts_mono));
-  return a0_futex(ftx, FUTEX_WAIT, confirm_val, (uintptr_t)&ts_mono, NULL, 0);
-}
-
-A0_STATIC_INLINE
 a0_err_t a0_ftx_wake(a0_ftx_t* ftx, int cnt) {
   return a0_futex(ftx, FUTEX_WAKE, cnt, 0, NULL, 0);
-}
-
-A0_STATIC_INLINE
-a0_err_t a0_ftx_signal(a0_ftx_t* ftx) {
-  return a0_ftx_wake(ftx, 1);
-}
-
-A0_STATIC_INLINE
-a0_err_t a0_ftx_broadcast(a0_ftx_t* ftx) {
-  return a0_ftx_wake(ftx, INT_MAX);
 }
 
 A0_STATIC_INLINE

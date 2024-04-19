@@ -39,7 +39,6 @@ struct a0_mtx_s {
 
 a0_err_t a0_mtx_lock(a0_mtx_t*) A0_WARN_UNUSED_RESULT;
 a0_err_t a0_mtx_timedlock(a0_mtx_t*, a0_time_mono_t) A0_WARN_UNUSED_RESULT;
-a0_err_t a0_mtx_trylock(a0_mtx_t*) A0_WARN_UNUSED_RESULT;
 a0_err_t a0_mtx_consistent(a0_mtx_t*);
 a0_err_t a0_mtx_unlock(a0_mtx_t*);
 

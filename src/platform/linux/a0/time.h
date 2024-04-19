@@ -45,9 +45,6 @@ extern "C" {
  *  @{
  */
 
-/// Header key for mono timestamps.
-extern const char A0_TIME_MONO[];
-
 /// Monotonic timestamp. Despite the name, uses CLOCK_BOOTTIME.
 typedef struct a0_time_mono_s {
   struct timespec ts;
@@ -55,12 +52,6 @@ typedef struct a0_time_mono_s {
 
 /// Get the current mono timestamps.
 a0_err_t a0_time_mono_now(a0_time_mono_t*);
-
-/// Stringify a given mono timestamps.
-a0_err_t a0_time_mono_str(a0_time_mono_t, char mono_str[20]);
-
-/// Parse a stringified mono timestamps.
-a0_err_t a0_time_mono_parse(const char mono_str[20], a0_time_mono_t*);
 
 /// Add a duration in nanoseconds to a mono timestamp.
 a0_err_t a0_time_mono_add(a0_time_mono_t, int64_t add_nsec, a0_time_mono_t*);
@@ -71,22 +62,10 @@ a0_err_t a0_time_mono_add(a0_time_mono_t, int64_t add_nsec, a0_time_mono_t*);
  *  @{
  */
 
-/// Header key for wall timestamps.
-extern const char A0_TIME_WALL[];
-
 /// Wall clock timestamp.
 typedef struct a0_time_wall_s {
   struct timespec ts;
 } a0_time_wall_t;
-
-/// Get the current wall timestamps.
-a0_err_t a0_time_wall_now(a0_time_wall_t*);
-
-/// Stringify a given wall timestamps.
-a0_err_t a0_time_wall_str(a0_time_wall_t, char wall_str[36]);
-
-/// Parse a stringified wall timestamps.
-a0_err_t a0_time_wall_parse(const char wall_str[36], a0_time_wall_t*);
 
 /** @}*/
 

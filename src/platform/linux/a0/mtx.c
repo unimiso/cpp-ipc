@@ -270,19 +270,6 @@ a0_err_t a0_mtx_trylock_impl(a0_mtx_t* mtx) {
   return A0_MAKE_SYSERR(ENOTRECOVERABLE);
 }
 
-a0_err_t a0_mtx_trylock(a0_mtx_t* mtx) {
-  __tsan_mutex_pre_lock(mtx, __tsan_mutex_try_lock);
-  robust_op_start(mtx);
-  a0_err_t err = a0_mtx_trylock_impl(mtx);
-  robust_op_end(mtx);
-  if (!err || A0_SYSERR(err) == EOWNERDEAD) {
-    __tsan_mutex_post_lock(mtx, __tsan_mutex_try_lock, 0);
-  } else {
-    __tsan_mutex_post_lock(mtx, __tsan_mutex_try_lock | __tsan_mutex_try_lock_failed, 0);
-  }
-  return err;
-}
-
 a0_err_t a0_mtx_consistent(a0_mtx_t* mtx) {
   const uint32_t val = a0_atomic_load(&mtx->ftx);
 

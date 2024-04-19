@@ -27,7 +27,7 @@ struct id_info_t {
 namespace ipc {
 namespace shm {
 
-id_t acquire(char const * name, std::size_t size, unsigned mode) {
+shm_seg::id_t acquire(char const * name, std::size_t size, unsigned mode) {
     if (!is_valid_string(name)) {
         ipc::error("fail acquire: name is empty\n");
         return nullptr;
@@ -35,7 +35,7 @@ id_t acquire(char const * name, std::size_t size, unsigned mode) {
     HANDLE h;
     auto fmt_name = ipc::detail::to_tchar(name);
     // Opens a named file mapping object.
-    if (mode == open) {
+    if (mode == shm_seg::open) {
         h = ::OpenFileMapping(FILE_MAP_ALL_ACCESS, FALSE, fmt_name.c_str());
         if (h == NULL) {
           ipc::error("fail OpenFileMapping[%d]: %s\n", static_cast<int>(::GetLastError()), name);
@@ -49,7 +49,7 @@ id_t acquire(char const * name, std::size_t size, unsigned mode) {
         DWORD err = ::GetLastError();
         // If the object exists before the function call, the function returns a handle to the existing object 
         // (with its current size, not the specified size), and GetLastError returns ERROR_ALREADY_EXISTS.
-        if ((mode == create) && (err == ERROR_ALREADY_EXISTS)) {
+        if ((mode == shm_seg::create) && (err == ERROR_ALREADY_EXISTS)) {
             if (h != NULL) ::CloseHandle(h);
             h = NULL;
         }
@@ -64,15 +64,15 @@ id_t acquire(char const * name, std::size_t size, unsigned mode) {
     return ii;
 }
 
-std::int32_t get_ref(id_t) {
+std::int32_t get_ref( shm_seg::id_t) {
     return 0;
 }
 
-void sub_ref(id_t) {
+void sub_ref( shm_seg::id_t) {
     // Do Nothing.
 }
 
-void * get_mem(id_t id, std::size_t * size) {
+void * get_mem( shm_seg::id_t id, std::size_t * size) {
     if (id == nullptr) {
         ipc::error("fail get_mem: invalid id (null)\n");
         return nullptr;
@@ -102,7 +102,7 @@ void * get_mem(id_t id, std::size_t * size) {
     return static_cast<void *>(mem);
 }
 
-std::int32_t release(id_t id) {
+std::int32_t release( shm_seg::id_t id) {
     if (id == nullptr) {
         ipc::error("fail release: invalid id (null)\n");
         return -1;
@@ -120,7 +120,7 @@ std::int32_t release(id_t id) {
     return 0;
 }
 
-void remove(id_t id) {
+void remove( shm_seg::id_t id) {
     if (id == nullptr) {
         ipc::error("fail release: invalid id (null)\n");
         return;

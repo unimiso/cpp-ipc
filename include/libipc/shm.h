@@ -5,26 +5,19 @@
 
 #include "libipc/export.h"
 
-namespace ipc {
-namespace shm {
+namespace ipc::shm {
 
-using id_t = void*;
+class IPC_EXPORT shm_seg
+{
+public:
+    using id_t = void*;
 
-enum : unsigned {
-    create = 0x01,
-    open   = 0x02
-};
+    enum: unsigned
+    {
+        create = 0x01,
+        open = 0x02
+    };
 
-IPC_EXPORT id_t         acquire(char const * name, std::size_t size, unsigned mode = create | open);
-IPC_EXPORT void *       get_mem(id_t id, std::size_t * size);
-IPC_EXPORT std::int32_t release(id_t id);
-IPC_EXPORT void         remove (id_t id);
-IPC_EXPORT void         remove (char const * name);
-
-IPC_EXPORT std::int32_t get_ref(id_t id);
-IPC_EXPORT void sub_ref(id_t id);
-
-class IPC_EXPORT shm_seg {
 public:
     shm_seg();
     shm_seg(char const * name, std::size_t size, unsigned mode = create | open);
@@ -55,5 +48,4 @@ private:
     handle_* p_;
 };
 
-} // namespace shm
-} // namespace ipc
+}
